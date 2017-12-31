@@ -1,3 +1,51 @@
-<p>
-  carga works!
-</p>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Seleccione archivos</h3>
+
+    <div  NgDropFiles
+        [ngClass]="{'file-over': estaSobreDropZone }"
+        (archivoSobre)="archivoSobreDropZone($event)"
+        class="well drop-zone">
+        <h4>Suelta los archivos aquí</h4>
+        <img src="/assets/img/drop-images.png">
+    </div>
+  </div>
+
+  <div class="col-md-8">
+        <h3>Cargar archivos</h3>
+
+        <button type="button" class="btn btn-success"
+                (click)="cargarImagenesFirebase()"
+                (disabled)="archivos.length == 0 || !permiteCargar">
+                Cargar a firebase
+        </button>
+
+        <button type="button" class="btn btn-danger"
+                (click)="limpiarArchivos()">
+                Limpiar archivos
+        </button>
+
+        <table class="table" *ngIf="archivos.length > 0">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tamaño</th>
+                    <th>Progreso</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+
+
+</div>

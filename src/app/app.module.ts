@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 
 
 // Routes
@@ -14,6 +15,9 @@ import { firebaseConfig } from "./config/firebase.config";
 // Services
 import { CargaImagenesService } from "./providers/carga-imagenes.service";
 
+// Directives
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
+
 import { AppComponent } from './app.component';
 import { CargaComponent } from './components/carga/carga.component';
 import { FotosComponent } from './components/fotos/fotos.component';
@@ -23,13 +27,15 @@ import { FotosComponent } from './components/fotos/fotos.component';
   declarations: [
     AppComponent,
     CargaComponent,
-    FotosComponent
+    FotosComponent,
+    NgDropFilesDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     APP_ROUTING
   ],
   providers: [
