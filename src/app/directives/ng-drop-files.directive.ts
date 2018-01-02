@@ -47,6 +47,7 @@ export class NgDropFilesDirective {
         }
 
         this._agregarArchivos(transferencia.files );
+        this.archivoSobre.emit( false );
 
         this._prevenirYdetener( event );
     }
@@ -69,7 +70,7 @@ export class NgDropFilesDirective {
             }
         }
 
-        
+
     }
 
 
